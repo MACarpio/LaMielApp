@@ -12,5 +12,10 @@ namespace LaMielApp.Data
             : base(options)
         {
         }
+        public DbSet<LaMielApp.Models.Contactanos> DataContactanos { get; set; }
+
+        public DbSet<LaMielApp.Models.Product> DataProduct {get; set;}
+
+        public DbSet<LaMielApp.Models.Proforma> DataProforma {get; set;}
     }
 }
