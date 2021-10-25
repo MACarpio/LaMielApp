@@ -1,0 +1,60 @@
+@model IEnumerable<LaMielApp.Models.Contactanos>
+
+<h2>Lista de Usuarios registrados en Contactanos</h2>
+
+<p>
+    <a asp-action="Create">Create</a>
+</p>
+<table class="table table-hover">
+     <thead class="thead-dark">
+        <tr>
+                <th scope="col">
+                     @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                    <th scope="col">
+                    @Html.DisplayNameFor(model => model.Asunto)
+                </th>
+                    <th scope="col">
+                    @Html.DisplayNameFor(model => model.Telefono)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Mensaje)
+                </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">
+                    @Html.DisplayFor(model => item.Id)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+
+                  <th >
+                    @Html.DisplayFor(model => item.Asunto)
+                </th>
+                    <th>
+                    @Html.DisplayFor(model => item.Telefono)
+                </th>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mensaje)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h1>@ViewData["Message"]</h1>

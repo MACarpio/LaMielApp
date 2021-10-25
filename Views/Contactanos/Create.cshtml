@@ -1,0 +1,39 @@
+@{
+    
+    Layout="_Layout";
+}
+@model Contactanos
+
+<div class="container-form">
+<div class="seccion-titulo" >
+  <h5 class="titulo-prim">Contactanos</h5>
+</div>
+<form asp-controller="Contactanos" asp-action="Create">
+     <div class="form-group" >
+                <label asp-for="Nombre" class="control-label">Nombre :</label>
+                <input asp-for="Nombre" class="form-control" placeholder="Escriba su nombre completo" type="text" required/>
+            </div>    
+                 <div class="form-group" style="text-align: left;">
+                <label asp-for="Email" class="control-label">Email :</label>
+                <input asp-for="Email" class="form-control" placeholder="Escriba su email" type="email" required />
+            </div>         
+            <div class="form-group" style="text-align: left;">
+                <label asp-for="Telefono" class="control-label">Telefono :</label>
+                <input asp-for="Telefono" class="form-control" placeholder="Escriba su teléfono" type="number" maxlength="9" required />
+            </div> 
+              <div class="form-group" style="text-align: left;">
+                <label asp-for="Asunto" class="control-label">Asunto :</label>
+                <input asp-for="Asunto" class="form-control" placeholder="Escriba el asunto"  type="text" required/>
+            </div>  
+            
+            <div  class="mb-3" style="text-align: left;" >
+                <label asp-for="Mensaje" class="control-label" >Mensaje :</label>
+                <textarea asp-for="Mensaje" placeholder="Escriba su mensaje"  class="form-control"></textarea>
+            </div>   
+                   
+            <div class="form-group"  >
+                 <button type="submit" class="btn-prim form-control btn-form" type="text" required>Enviar</button> 
+            </div>                
+
+</form>
+</div>
