@@ -1,5 +1,18 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+}
+
+:root{
+  --color-prim:#cac52b;
+}
 
 a.navbar-brand {
   white-space: normal;
@@ -10,18 +23,6 @@ a.navbar-brand {
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
 }
 
 /* Sticky footer styles
@@ -68,4 +69,201 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+
+/* Agregando estilo a la pagina */
+.img-cover{
+  position: relative;
+  display: inline-block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.logo{
+  height: 25px;
+}
+.carrusel-container{
+  height: 500px;
+  margin-bottom: 1.5rem;
+}
+
+.seccion-title{
+  margin-bottom: 0.5rem;
+}
+.item-nav{
+  font-size: 14px;
+  color:black;
+  transition: all 0.3s ease;
+}
+
+.item-nav:hover{
+  color: var(--color-prim);
+  font-size: 15px !important;
+}
+.seccion-titulo{
+  margin: 20px 0;
+}
+
+.titulo-seccion{
+  font-size: 1.3rem;
+  color: #456;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.titulo-prim{
+  font-size: 1.7rem;
+  color: #333;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.seccion-container{
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.seccion{
+  text-align: center;
+  width: 50%;
+  height: auto;
+  align-items: center;
+}
+
+.seccion:hover > h5{
+  transition: all 0.5s ease;
+  color: var(--color-prim);
+}
+
+.slogan-emp{
+  margin: 20px 10%;
+}
+@media (max-width: 768px) {
+  .seccion {
+      width: 100%;
+      margin-bottom: 1.5rem;
+  }
+  .seccion-container{
+    margin-bottom: -20px;
+  }
+}
+
+.seccion-container .seccion a{
+  width: 100%;
+}
+.seccion ul{
+  list-style: none;
+}
+.info-seccion{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.img-seccion{
+  width:100%;
+  height: 50vh;
+  object-fit: cover;
+}
+.about{
+  display: grid;
+}
+.about-img{
+  background-image: url(https://lirp.cdn-website.com/6f19f68f/dms3rep/multi/opt/946852-cafe-dulceria-la-miel-collage-de-la-fachada-de-la-pasteleria-y-tortas.w1024-960w.png);
+  width: 100vw;
+  height: 60vh;
+  background-size: cover;
+  z-index: 1;
+}
+
+.caja-titulo{
+  display: flex;
+  align-items: center;
+  z-index: 4;
+  top: -50px;
+  position: relative;
+  margin: auto;
+  margin-bottom: -20px;
+  height: 15vh;
+  width: 70vw;
+  background: linear-gradient(90deg, rgb(249, 251, 252) 4%, var(--color-prim) 100%);
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0px 1px 3px 1px black;
+}
+.about-titulo{
+  font-size: 2.5rem;
+  margin: 0 auto;
+  color: #000;
+  display: inline-block;
+  font-weight: bold;
+}
+@media (max-width: 500px) {
+  .about-titulo{
+      font-size: 1.75rem;
+  }
+}
+.about .about-info{
+  margin: auto;
+  width: 70vw;
+}
+.about .about-info .info-emp{
+  display: flex;
+  flex-direction: row;
+}
+.about .about-info .info-emp .direc-emp,.about .about-info .info-emp .tel-emp{
+  width: 50%;
+  margin-top: 20px;
+}
+.about .about-info p{
+  text-align: center;
+  font-size: 1rem;
+}
+.about .about-info h4{
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+}
+.about .about-info ul{
+  list-style:none;
+  text-align: center;
+  margin-left: -40px;
+}
+
+.btn-prim{
+  border: none;
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 30px;
+  background-color: #cac52be8;
+}
+.btn-prim:hover{
+  transition: all 0.5s;
+  background-color: #f3ed34;
+  color: black;
+}
+.btn-prim a{
+  text-decoration: none;
+}
+
+.container-form{
+  margin: 20px 29%;
+  background-color: #fdf73218;
+  padding: 20px 50px;
+  border-radius: 50px;
+  box-shadow: 1px 2px 1px 1px rgb(67, 66, 66);
+}
+@media (max-width: 768px) {
+  .container-form{
+    z-index: 1000;
+    margin: 40px ;
+    padding: 10px 20px;
+    border-radius: 50px;
+  }
+}
+.btn-form{
+  margin: 0 ;
 }

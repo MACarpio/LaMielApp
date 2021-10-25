@@ -2,7 +2,72 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="carrusel mb-2">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner ">
+        <div class="carousel-item active carrusel-container">
+          <img class="img-cover" src="/img/Pastel1.jpg" alt="Torta1" >
+        </div>
+        <div class="carousel-item carrusel-container">
+          <img class="img-cover" src="/img/Pastel2.jpg" alt="Torta2" >
+        </div>
+        <div class="carousel-item carrusel-container">
+          <img class="img-cover" src="/img/Pastel3.jpg" alt="Torta3" >
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+</div>
+
+<div class="seccion-titulo" >
+  <h5 class="titulo-seccion">Quienes Somos</h5>
+</div>
+
+<div class="seccion-container">
+  <div class="seccion info-seccion">
+    <h5 class="titulo-seccion">Pasteleria La Miel</h5>
+    <div class="slogan-emp">
+    <p>" Un postre rico es el punto de partida para crear dulces recuerdos "</p>
+    <p>En la pasteleria la miel te garantizamos un momento unico y de relajo disfrutando un postre exquisito </p>
+    <p>Nuestro principal objetivo es satisfacer los paladares más exigentes, por eso brindamos un excelente servicio. Si busca una cafetería de calidad, visítenos. </p>
+    </div>
+    <a asp-controller="Home" asp-action="AboutUs"><div class="btn-prim">Ver Mas</div></a>
+  </div>
+  <div class="seccion">
+    <a>
+      <img class="img-seccion" src="/img/local.jpg" alt="Pasteleria La Miel">
+    </a>
+  </div>
+</div>
+
+<div class="seccion-titulo" >
+  <h5 class="titulo-seccion">Qué Ofrecemos</h5>
+</div>
+
+<div class="seccion-container">
+    <div class="seccion">
+    <a>
+      <img class="img-seccion" src="https://lirp.cdn-website.com/6f19f68f/dms3rep/multi/opt/946831-cafe-dulceria-la-miel-banner-960w.jpg" alt="Productos de la Miel">
+    </a>
+  </div>
+  <div class="seccion info-seccion">
+    <h5 class="titulo-seccion">Nuestros Productos</h5>
+    <div class="slogan-emp">
+    <p>En Café Dulcería La Miel estamos especializados en:" Confección de tortas en general "</p>
+    <ul>
+        <li>Postres</li>
+        <li>Pasteles</li>
+        <li>Empanadas</li>
+        <li>Bocaditos</li>
+    </ul>
+    </div>
+    <a asp-controller="Catalogo" asp-action="Index"><div class="btn-prim">Ver Productos</div></a>
+  </div>
 </div>
