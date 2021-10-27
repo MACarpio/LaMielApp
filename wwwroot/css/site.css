@@ -81,7 +81,7 @@ body {
 }
 
 .logo{
-  height: 25px;
+  height: 50px;
 }
 .carrusel-container{
   height: 500px;
@@ -266,4 +266,73 @@ body {
 }
 .btn-form{
   margin: 0 ;
+}
+
+.contenedor-catalogo{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 25px;
+  margin: 0 15%;
+}
+
+.img-catalogo{
+  width:100%;
+  height: 30vh;
+  object-fit: cover;
+}
+
+.nom-producto{
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.precio-producto{
+  text-align: center;
+  font-size: 1em;
+}
+
+.btn-sec{
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 30px;
+  background-color: #136b9e;
+}
+.btn-sec:hover{
+  transition: all 0.5s;
+  background-color: #1a8aca;
+  color: black;
+}
+.catalogo-btn{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.card{
+  border: none !important;
+  border-bottom: 2px solid gray !important;
+  border-right: 2px solid gray !important;
+  border-radius: 30px;
+}
+
+.btn-completo{
+  display: inline;
+}
+
+.container-carrito{
+  margin: 20px 10%;
+  background-color: #fdf73218;
+  padding: 20px 50px;
+  border-radius: 50px;
+  box-shadow: 1px 2px 1px 1px rgb(67, 66, 66);
+}
+@media (max-width: 768px) {
+  .container-carrito{
+    z-index: 1000;
+    margin:20px ;
+    padding: 10px 20px;
+    border-radius: 50px;
+  }
 }

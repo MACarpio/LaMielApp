@@ -3,34 +3,30 @@
     ViewData["Title"] = "Catalogo";
 }
 
-<h1>@ViewData["Title"]</h1>
-<div class="container">
-    <h1>@ViewData["Message"]</h1>
-    <div class="row">
-        <div class="col">
-            <div id="products" class="mb-3">
-                <div class="row">
-                    @foreach (var item in Model)
-                    {
-                        <div class="col-sm-4">
-                            <div class="card mb-3">
-                                <div class="card-body">
-                                    <div class="card-img-actions">
-                                        <img class="img-responsive" width="96" height="150" src="/img/@item.ImagenName"
-                                        alt="@item.ImagenName" />
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
-                                    <p class="card-text">@Html.DisplayFor(modelItem => item.Price)</p>
-                                    <a class="btn btn-primary" asp-action="Add" asp-route-id="@item.Id">Add</a>
-                                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">View</a>
-                                </div>
-                            </div>
-                        </div>
-                    }
-                </div>
+<div class="seccion-titulo" >
+  <h5 class="titulo-prim">@ViewData["Title"]</h5>
+</div>
+<div class="seccion-titulo" >
+  <h5 class="titulo-seccion">@ViewData["Message"]</h5>
+</div>
+<div class="contenedor-catalogo">
+    @foreach (var item in Model)
+    {
+    <div class="card">
+        <div class="card-body">
+            <div class="card-img-actions">
+                <img class="img-catalogo" width="96" height="150" src="/img/@item.ImagenName"
+                    alt="@item.ImagenName" />
+            </div>
+        </div>
+        <div class="card-body">
+            <h5 class="nom-producto">@Html.DisplayFor(modelItem => item.Name)</h5>
+            <p class="precio-producto">@Html.DisplayFor(modelItem => item.Price)</p>
+            <div class="catalogo-btn">
+            <a class="btn btn-prim" asp-action="Add" asp-route-id="@item.Id">Add</a>
+            <a class="btn btn-sec" asp-action="Details" asp-route-id="@item.Id">View</a>
             </div>
         </div>
     </div>
+    }
 </div>
