@@ -1,5 +1,6 @@
 @page
 @model RegisterModel
+
 @{
     ViewData["Title"] = "Register";
 }
@@ -12,6 +13,21 @@
         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <hr />
             <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Input.Nombres" class="control-label"></label>
+                <input asp-for="Input.Nombres" class="form-control" placeholder="Ingresa tu correo" type="text" required/>
+                <span asp-validation-for="Input.Nombres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Apellidos" class="control-label"></label>
+                <input asp-for="Input.Apellidos" class="form-control" placeholder="Ingresa tu correo" type="text" required/>
+                <span asp-validation-for="Input.Apellidos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.FechaNac" class="control-label"></label>
+                <input asp-for="Input.FechaNac" class="form-control" type="date" required/>
+                <span asp-validation-for="Input.FechaNac" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Input.Email" class="control-label"></label>
                 <input asp-for="Input.Email" class="form-control" placeholder="Ingresa tu correo" type="text" required/>

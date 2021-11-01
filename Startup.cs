@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
+using LaMielApp.Models;
 
 namespace LaMielApp
 {
@@ -37,8 +38,10 @@ namespace LaMielApp
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddScoped<SignInManager<ApplicationUser>,SignInManager<ApplicationUser>>();
+            services.AddScoped<UserManager<ApplicationUser>,UserManager<ApplicationUser>>();
             services.AddControllersWithViews();
         }
 
