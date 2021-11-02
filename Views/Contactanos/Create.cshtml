@@ -3,11 +3,11 @@
     Layout="_Layout";
 }
 @model Contactanos
-
-<div class="container-form">
 <div class="seccion-prim" >
   <h5 class="titulo-prim">Contactanos</h5>
 </div>
+<div class="container-contactanos">
+<div class="container-form form-contactanos">
 <form asp-controller="Contactanos" asp-action="Create">
      <div class="form-group" >
                 <label asp-for="Nombre" class="control-label">Nombre :</label>
@@ -36,4 +36,8 @@
             </div>                
 
 </form>
+</div>
+<div class="mapa">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30615.1938824232!2d-71.54482396044921!3d-16.429943199999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91424adf1a5c1db9%3A0x440e99af1557ff82!2sLa%20Miel!5e0!3m2!1ses!2spe!4v1635809457501!5m2!1ses!2spe" width="600" height="520" style="border:2px solid black;" allowfullscreen="" loading="lazy"></iframe>
+</div>
 </div>

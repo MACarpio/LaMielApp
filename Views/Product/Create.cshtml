@@ -1,54 +1,56 @@
 @model LaMielApp.Models.Product
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear producto";
 }
-    <div class="container-form">
-        <div class="seccion-prim" >
-  <h5 class="titulo-prim">Crear Producto</h5>
+
+<div class="seccion-titulo" >
+  <h5 class="titulo-prim">@ViewData["Title"]</h5>
 </div>
+    <div class="crud-producto">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
+                <label asp-for="Name" class="control-label">Nombre</label>
+                <input asp-for="Name" class="form-control" placeholder="Escriba el nombre del producto"/>
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Descripcion" class="control-label"></label>
-                <input asp-for="Descripcion" class="form-control" />
+                <label asp-for="Descripcion" class="control-label">Descripción</label>
+                <textarea asp-for="Descripcion" class="form-control" rows="2" placeholder="Escriba la descripción del producto"></textarea>
                 <span asp-validation-for="Descripcion" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
+                <label asp-for="Price" class="control-label">Precio</label>
+                <input asp-for="Price" class="form-control" placeholder="Escriba el precio del producto"/>
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ImagenName" class="control-label"></label>
-                <input asp-for="ImagenName" class="form-control" />
+                <label asp-for="ImagenName" class="control-label">Nombre de la Imagen</label>
+                <input asp-for="ImagenName" class="form-control" placeholder="Escriba el nombre de la imagen del producto"/>
                 <span asp-validation-for="ImagenName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DueDate" class="control-label"></label>
+                <label asp-for="DueDate" class="control-label">Fecha de Registro</label>
                 <input asp-for="DueDate" class="form-control" />
                 <span asp-validation-for="DueDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
+                <label asp-for="Status" class="control-label">Estado</label>
+                <input asp-for="Status" class="form-control" placeholder="Escriba el estado del producto"/>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="form-group" style="text-align: center;">
+                <input type="submit" value="Crear Producto" class="btn btn-prim" />
             </div>
         </form>
     </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div style="text-align: center;">
+    <a class="btn-prim" asp-action="Index">Regresar al catálogo</a>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+

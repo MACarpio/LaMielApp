@@ -1,14 +1,46 @@
 @model LaMielApp.Models.Product
 
+
 @{
     ViewData["Title"] = "Details";
 }
 
-<div class="container-form">
-    <div class="seccion-prim" >
+<div class="container-detalles">
+  <div class="seccion-titulo titulo-detalles" >
     <h5 class="titulo-prim">@Html.DisplayFor(model => model.Name)</h5>
-    </div>
+  </div>
+  <div class="img-detalles">
+    <img class="img-producto" src="/img/@Html.DisplayFor(model => model.ImagenName)" alt="@Html.DisplayFor(model => model.ImagenName)"  />
+  </div>
+  <div class="info-detalles">
+    <p class="nom-producto">Descripción</p>
+    <h5 class="precio-producto">@Html.DisplayFor(model => model.Descripcion)</h5>
+    <p class="nom-producto">Precio</p>
+    <h5 class="precio-producto">@Html.DisplayFor(model => model.Price)</h5>
+    <p class="nom-producto">Nombre de la Imagen</p>
+    <h5 class="precio-producto">@Html.DisplayFor(model => model.ImagenName)</h5>
+    <p class="nom-producto">Fecha de registro</p>
+    <h5 class="precio-producto">@Html.DisplayFor(model => model.DueDate)</h5>
+    <p class="nom-producto">Estado</p>
+    <h5 class="precio-producto">@Html.DisplayFor(model => model.Status)</h5>
+    
+    <a class="btn btn-prim" asp-action="Index">Regresar al catalogo</a>
+  </div>
+</div>
+
+<br>-------------------------------------------- <br>
+<h1>Details</h1>
+
+<div>
+    <h4>Product</h4>
+    <hr />
     <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Descripcion)
         </dt>

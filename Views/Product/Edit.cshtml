@@ -4,54 +4,50 @@
     ViewData["Title"] = "Edit";
 }
 
-    <div class="container-form">
-        <div class="seccion-prim" >
-  <h5 class="titulo-prim">Editar</h5>
-</div>
-        <form asp-action="Edit">
+<form asp-action="Edit">
+<div class="container-detalles">
+  <div class="seccion-titulo titulo-detalles" >
+      <div class="form-group">
+      <input asp-for="Name" class="form-control text-center" s/>
+      </div>
+  </div>
+  <div class="img-detalles">
+    <img class="img-producto" src="/img/@Html.DisplayFor(model => model.ImagenName)" alt="@Html.DisplayFor(model => model.ImagenName)"  />
+  </div>
+  <div class="edit-detalles">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Descripcion" class="control-label"></label>
-                <input asp-for="Descripcion" class="form-control" />
+                <label asp-for="Descripcion" class="control-label text-center">Descripción</label>
+                <textarea asp-for="Descripcion" class="form-control" cols="40" rows="4"></textarea>
                 <span asp-validation-for="Descripcion" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
+                <label asp-for="Price" class="control-label text-center">Precio</label>
                 <input asp-for="Price" class="form-control" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ImagenName" class="control-label"></label>
+                <label asp-for="ImagenName" class="control-label text-center">Nombre de la Imagen</label>
                 <input asp-for="ImagenName" class="form-control" />
                 <span asp-validation-for="ImagenName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DueDate" class="control-label"></label>
+                <label asp-for="DueDate" class="control-label text-center">Fecha de Registro</label>
                 <input asp-for="DueDate" class="form-control" />
                 <span asp-validation-for="DueDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
+                <label asp-for="Status" class="control-label text-center">Estado</label>
                 <input asp-for="Status" class="form-control" />
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="editar-btn">
+            <input type="submit" value="Actualizar" class="btn btn-prim btn-completo" />
             </div>
-        </form>
-    </div>
-
-
-<div>
-    <a asp-action="Index">Back to List</a>
+  </div>
 </div>
-
+</form>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
