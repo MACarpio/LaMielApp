@@ -1,25 +1,18 @@
 @model LaMielApp.Models.Product
-
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
-    <div class="container">
-            <div class="col-sm-4">
-              <div class="card mb-3">
-                <div class="card-body">
-                  <div class="card-img-actions">
-                    <img class="img-responsive" width="96" height="150"
-                       src="/img/@Html.DisplayFor(model => model.ImagenName)" alt="@Html.DisplayFor(model => model.ImagenName)"  />
-                  </div>
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">@Html.DisplayFor(model => model.Name)</h5>
-                  <p class="card-text">@Html.DisplayFor(model => model.Descripcion)</p>
-                  <h5 class="card-title">@Html.DisplayFor(model => model.Price)</h5>
-                  <a class="btn btn-primary" asp-action="Add" asp-route-id="Id">Add</a>
-                </div>
-              </div>
-            </div>
-    </div>
+<div class="container-detalles">
+  <div class="seccion-titulo titulo-detalles" >
+    <h5 class="titulo-prim">@Html.DisplayFor(model => model.Name)</h5>
+  </div>
+  <div class="img-detalles">
+    <img class="img-producto" src="/img/@Html.DisplayFor(model => model.ImagenName)" alt="@Html.DisplayFor(model => model.ImagenName)"  />
+  </div>
+  <div class="info-detalles">
+    <p class="nom-producto">@Html.DisplayFor(model => model.Descripcion)</p>
+    <h5 class="precio-producto">@Html.DisplayFor(model => model.Price)</h5>
+    <a class="btn btn-prim" asp-action="Add" asp-route-id="@Model.Id">Add</a>
+  </div>
+</div>

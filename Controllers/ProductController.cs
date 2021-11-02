@@ -43,6 +43,16 @@ namespace LaMielApp.Controllers
             return View(product);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Index(String Searchpro){
+            ViewData["Getemployeedetails"]=Searchpro;
+            var empquery=from x in _context.DataProduct select x;
+            if(!string.IsNullOrEmpty(Searchpro)){
+                empquery=empquery.Where(x =>x.Name.Contains(Searchpro))  ;
+            }
+            return View(await empquery.AsNoTracking().ToListAsync());
+
+        }
         // GET: Product/Create
         public IActionResult Create()
         {

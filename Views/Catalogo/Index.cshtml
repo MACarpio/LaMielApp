@@ -6,12 +6,18 @@
 <div class="seccion-titulo" >
   <h5 class="titulo-prim">@ViewData["Title"]</h5>
 </div>
+<div class="container-buscar">
+    <form>
+      <input class="form-control buscar-producto" type="search" placeholder="Buscar" aria-label="Search" value=" @ViewData["Getemployeedetails"]" name="Empsearch">
+      <button class="btn btn-prim" type="submit">Buscar</button>
+    </form>
+  </div>
 <div class="seccion-titulo" >
   <h5 class="titulo-seccion">@ViewData["Message"]</h5>
 </div>
 <div class="contenedor-catalogo">
     @foreach (var item in Model)
-    {
+    { @if(item.Status.Equals("A")){
     <div class="card">
         <div class="card-body">
             <div class="card-img-actions">
@@ -28,5 +34,5 @@
             </div>
         </div>
     </div>
-    }
+    }}
 </div>
