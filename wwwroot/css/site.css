@@ -504,8 +504,8 @@ body {
 }
 .social{
   position: fixed;
-  left:-12px;
-  top: 250px;
+  right: 0px;
+  bottom: 50px;
 }
 .social ul{
   list-style: none;
