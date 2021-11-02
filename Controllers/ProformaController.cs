@@ -64,7 +64,8 @@ public class ProformaController: Controller
                 return NotFound();
             }
 
-            var proforma = await _context.DataProforma.FindAsync(id);
+            var proforma = await _context.DataProforma.Include(p => p.Producto)
+            .FirstOrDefaultAsync(i => i.Id == id);
             if (proforma == null)
             {
                 return NotFound();
