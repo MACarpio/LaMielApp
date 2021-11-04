@@ -33,5 +33,9 @@ namespace LaMielApp.Models
 
         [Column("status")]
         public String Status { get; set; }
+
+        public Product(){
+            DueDate=DateTime.Now;
+        } 
     }
 }

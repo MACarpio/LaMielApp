@@ -498,21 +498,25 @@ body {
   font-size: 24px;
   
 }
+
 .icons-sticky{
   border-radius: 50%;
   border: #E8EBE7  5px solid;
   margin-bottom:10px ;
 }
+
 .social{
   position: fixed;
   right: 0px;
   bottom: 50px;
 }
+
 .social ul{
   list-style: none;
   
   
 }
+
 .social a{
   display: inline-block;
   text-decoration: none;
@@ -521,9 +525,11 @@ body {
   z-index: 10000000;
   transition: 0.1s ease;
 }
+
 .fa-facebook-messenger{
   background: #0084ff;
 }
+
 .fa-whatsapp{
   background: #25d366;
 }
@@ -536,6 +542,7 @@ body {
 .form-contactanos{
   margin: 0 10%;
 }
+
 .form-control:focus {
   color: #212529;
   background-color: #fff;
