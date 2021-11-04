@@ -323,10 +323,11 @@ body {
 
 .container-carrito{
   margin: 20px 10%;
-  background-color: #fdf73218;
+  background-color: #ffffff18;
   padding: 20px 50px;
   border-radius: 50px;
-  box-shadow: 1px 2px 1px 1px rgb(67, 66, 66);
+  border: 2px solid black;
+  box-shadow: 5px 5px 10px 1px #d6d017;
 }
 @media (max-width: 768px) {
   .container-carrito{
@@ -534,4 +535,42 @@ body {
 
 .form-contactanos{
   margin: 0 10%;
+}
+.form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(255, 200, 0, 0.25);
+}
+
+#custom-button {
+  border: none;
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 30px;
+  background-color: #cac52be8;
+}
+
+#custom-button:hover {
+  transition: all 0.5s;
+  background-color: #f3ed34;
+  color: black;
+}
+
+#custom-text {
+  margin-left: 10px;
+  font-family: sans-serif;
+  color: #aaa;
+}
+.detalles-btn{
+  margin-top: 15px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  gap: 5px;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1/3;
 }

@@ -8,7 +8,7 @@
   <h5 class="titulo-prim">@ViewData["Title"]</h5>
 </div>
     <div class="crud-producto">
-        <form asp-action="Create">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label">Nombre</label>
@@ -25,10 +25,13 @@
                 <input asp-for="Price" class="form-control" placeholder="Escriba el precio del producto"/>
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
+            <div class="form-group" style="margin-bottom: -2px;">
+                <label asp-for="Imagen" class="control-label" >Imagen</label>
+            </div>
             <div class="form-group">
-                <label asp-for="ImagenName" class="control-label">Nombre de la Imagen</label>
-                <input asp-for="ImagenName" class="form-control" placeholder="Escriba el nombre de la imagen del producto"/>
-                <span asp-validation-for="ImagenName" class="text-danger"></span>
+                <input type="file" id="real-file" hidden="hidden" asp-for="Imagen"name="upload" accept="application/jpg" required/>
+                <button type="button" id="custom-button">Cargar Imagen</button>
+                <span id="custom-text">No selecciono ningun archivo.</span>
             </div>
             <div class="form-group">
                 <label asp-for="DueDate" class="control-label">Fecha de Registro</label>

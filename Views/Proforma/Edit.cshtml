@@ -12,7 +12,7 @@
     <h5 class="titulo-prim">@Html.DisplayFor(model => Model.Producto.Name)</h5>
   </div>
   <div class="img-detalles">
-    <img class="img-producto" src="/img/@Html.DisplayFor(model => model.Producto.ImagenName)" alt="@Html.DisplayFor(model => model.Producto.ImagenName)"  />
+    <img class="img-producto" src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=Model.Producto.Id })" alt="@Html.DisplayFor(model => model.Producto.ImagenName)"  />
   </div>
   <div class="edit-detalles">
             <input type="hidden" asp-for="Id" />

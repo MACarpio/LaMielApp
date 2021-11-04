@@ -1,6 +1,6 @@
 @model IEnumerable<LaMielApp.Models.Product>
 @{
-    ViewData["Title"] = "Catalogo";
+    ViewData["Title"] = "Catálogo";
 }
 
 <div class="seccion-titulo" >
@@ -21,16 +21,15 @@
     <div class="card">
         <div class="card-body">
             <div class="card-img-actions">
-                <img class="img-catalogo" width="96" height="150" src="/img/@item.ImagenName"
-                    alt="@item.ImagenName" />
+                <img class="img-catalogo" width="96" height="150" src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=item.Id })"/>
             </div>
         </div>
         <div class="card-body">
             <h5 class="nom-producto">@Html.DisplayFor(modelItem => item.Name)</h5>
             <p class="precio-producto">@Html.DisplayFor(modelItem => item.Price)</p>
             <div class="catalogo-btn">
-            <a class="btn btn-prim" asp-action="Add" asp-route-id="@item.Id">Add</a>
-            <a class="btn btn-sec" asp-action="Details" asp-route-id="@item.Id">View</a>
+            <a class="btn btn-prim" asp-action="Add" asp-route-id="@item.Id">Añadir</a>
+            <a class="btn btn-sec" asp-action="Details" asp-route-id="@item.Id">Detalles</a>
             </div>
         </div>
     </div>

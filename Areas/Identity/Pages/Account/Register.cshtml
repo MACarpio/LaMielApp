@@ -14,32 +14,32 @@
             <hr />
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Input.Nombres" class="control-label"></label>
+                <label asp-for="Input.Nombres" class="control-label">Nombres</label>
                 <input asp-for="Input.Nombres" class="form-control" placeholder="Ingresa tu correo" type="text" required/>
                 <span asp-validation-for="Input.Nombres" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Input.Apellidos" class="control-label"></label>
+                <label asp-for="Input.Apellidos" class="control-label">Apellidos</label>
                 <input asp-for="Input.Apellidos" class="form-control" placeholder="Ingresa tu correo" type="text" required/>
                 <span asp-validation-for="Input.Apellidos" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Input.FechaNac" class="control-label"></label>
-                <input asp-for="Input.FechaNac" class="form-control" type="date" required/>
+                <label asp-for="Input.FechaNac" class="control-label">Fecha de Nacimiento</label>
+                <input asp-for="Input.FechaNac" class="form-control" type="date" max="2011-01-01" required/>
                 <span asp-validation-for="Input.FechaNac" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Input.Email" class="control-label"></label>
+                <label asp-for="Input.Email" class="control-label">Correo</label>
                 <input asp-for="Input.Email" class="form-control" placeholder="Ingresa tu correo" type="text" required/>
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Input.Password" class="control-label"></label>
+                <label asp-for="Input.Password" class="control-label">Contraseña</label>
                 <input asp-for="Input.Password" class="form-control" placeholder="Ingresa una contraseña" type="password" required/>
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Input.ConfirmPassword" class="control-label"></label>
+                <label asp-for="Input.ConfirmPassword" class="control-label">Confirmar contraseña</label>
                 <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirma contraseña" type="password" required/>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>

@@ -2,7 +2,7 @@
 @using System.Collections.Generic;
 
 @{
-    ViewData["Title"] = "Carrito";
+    ViewData["Title"] = "Carrito de compras";
     IEnumerable<LaMielApp.Models.Proforma> listProformas = new List<Proforma>();
     listProformas = @Model.proformas;
     Decimal montoTotal = @Model.montoTotal;
@@ -37,7 +37,7 @@
 @foreach (Proforma item in Model.proformas) {
         <tr>
             <td style="text-align: center;">
-                <img class="img-proforma" src="/img/@item.Producto.ImagenName"
+                <img class="img-proforma" src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=item.Producto.Id })"
                     alt="@item.Producto.ImagenName" />
             </td>
             <td>
@@ -61,8 +61,8 @@
                 </h5>
             </td>
             <td class="carrito-btn">
-                <a class="btn-editar" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                <a class="btn-eliminar" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a class="btn-editar" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                <a class="btn-eliminar" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
             </td>
         </tr>
 }

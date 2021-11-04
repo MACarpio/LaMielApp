@@ -27,7 +27,13 @@ namespace LaMielApp.Controllers
             var productos = from o in _context.DataProduct select o;
             return View(await productos.ToListAsync());
         }
-        
+
+        public IActionResult MostrarImagen(int id){
+           var producto = _context.DataProduct.Find(id);
+           byte[] imagen = producto.Imagen;
+           return File( imagen ,"img/png");  
+       }
+
         [HttpGet]
         public async Task<IActionResult> Index(String Empsearch){
             ViewData["Getemployeedetails"]=Empsearch;

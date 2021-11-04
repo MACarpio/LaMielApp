@@ -10,7 +10,7 @@
     <h5 class="titulo-prim">@Html.DisplayFor(model => model.Name)</h5>
   </div>
   <div class="img-detalles">
-    <img class="img-producto" src="/img/@Html.DisplayFor(model => model.ImagenName)" alt="@Html.DisplayFor(model => model.ImagenName)"  />
+    <img class="img-producto" src="@Url.ActionLink("MostrarImagen","Product",new { id=Model.Id })" alt="@Html.DisplayFor(model => model.ImagenName)"  />
   </div>
   <div class="info-detalles">
     <p class="nom-producto">Descripción</p>
@@ -23,57 +23,12 @@
     <h5 class="precio-producto">@Html.DisplayFor(model => model.DueDate)</h5>
     <p class="nom-producto">Estado</p>
     <h5 class="precio-producto">@Html.DisplayFor(model => model.Status)</h5>
-    
-    <a class="btn btn-prim" asp-action="Index">Regresar al catalogo</a>
+  </div>
+  <div class="detalles-btn">
+      <a class="btn btn-prim" asp-action="Index">Regresar al catalogo</a>
+    <a class="btn btn-editar" asp-action="Edit" asp-route-id="@Model.Id">Editar</a>
+    <a class="btn btn-eliminar" asp-action="Delete" asp-route-id="@Model.Id">Eliminar</a>
+
   </div>
 </div>
 
-<br>-------------------------------------------- <br>
-<h1>Details</h1>
-
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImagenName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImagenName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DueDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DueDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>

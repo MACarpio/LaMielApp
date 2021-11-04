@@ -40,8 +40,7 @@ namespace LaMielApp
 
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddScoped<SignInManager<ApplicationUser>,SignInManager<ApplicationUser>>();
-            services.AddScoped<UserManager<ApplicationUser>,UserManager<ApplicationUser>>();
+
             services.AddControllersWithViews();
         }
 

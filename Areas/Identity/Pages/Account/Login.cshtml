@@ -8,7 +8,7 @@
 <br>
 <div class="container-form">
 <div class="seccion-titulo" >
-  <h5 class="titulo-prim">Log in</h5>
+  <h5 class="titulo-prim">Acceder</h5>
 </div>
 <form id="account" method="post">
     <div asp-validation-summary="All" class="text-danger"></div>
@@ -26,12 +26,12 @@
                     <div class="checkbox">
                         <label asp-for="Input.RememberMe">
                             <input asp-for="Input.RememberMe" />
-                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                            Recordar usuario?
                         </label>
                     </div>
                 </div>
             <div class="form-group">
-                 <button type="submit" class="btn-prim form-control btn-form">Log in</button> 
+                 <button type="submit" class="btn-prim form-control btn-form">Acceder</button> 
             </div>
             <div class="form-group">
                     <p>

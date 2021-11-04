@@ -22,8 +22,11 @@ namespace LaMielApp.Models
         [Column("price")]
         public Decimal Price {get; set;}
 
-        [Column("image")]
+        [Column("imagename")]
         public String ImagenName { get; set; }
+
+        [Column("Imagen")]
+        public Byte [] Imagen { get; set; }
 
         [Column("duedate")]
         public DateTime DueDate { get; set; }

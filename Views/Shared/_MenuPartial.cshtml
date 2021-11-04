@@ -16,14 +16,14 @@
     @*if(UserManager.GetUserName(User).Equals("admin@gmail.com") *@
     @if(UserManager.GetUserName(User).Equals("admin@gmail.com")){
         <li class="nav-item">
-            <a class="nav-link item-nav" asp-area="" asp-controller="Product" asp-action="Index">Catalogo</a>
+            <a class="nav-link item-nav" asp-area="" asp-controller="Product" asp-action="Index">Catálogo</a>
         </li> // Password:Admin123*.
         <li class="nav-item">
             <a class="nav-link item-nav" asp-area="" asp-controller="Product" asp-action="Create"><i class="fas fa-plus-square"></i>  Agregar</a>
         </li> 
     }else{
         <li class="nav-item">
-            <a class="nav-link item-nav" asp-area="" asp-controller="Catalogo" asp-action="Index">Catalogo</a>
+            <a class="nav-link item-nav" asp-area="" asp-controller="Catalogo" asp-action="Index">Catálogo</a>
         </li>
         <li class="nav-item">
         <a class="nav-link item-nav" asp-area="" asp-controller="Proforma" asp-action="Index"><i class="fas fa-shopping-cart"> </i>  Carrito</a>
@@ -39,7 +39,7 @@ else
                 <a class="nav-link item-nav" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link item-nav" asp-area="" asp-controller="Catalogo" asp-action="Index">Catalogo</a>
+                <a class="nav-link item-nav" asp-area="" asp-controller="Catalogo" asp-action="Index">Catálogo</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link item-nav" asp-area="" asp-controller="Home" asp-action="AboutUs">Nosotros</a>

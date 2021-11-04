@@ -20,7 +20,7 @@
     <div class="card">
         <div class="card-body">
             <div class="card-img-actions">
-                <img class="img-catalogo" width="96" height="150" src="/img/@item.ImagenName"
+                <img class="img-catalogo" width="96" height="150" src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=item.Id })"
                     alt="@item.ImagenName" />
             </div>
         </div>
