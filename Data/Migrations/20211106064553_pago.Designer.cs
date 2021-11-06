@@ -3,15 +3,17 @@ using System;
 using LaMielApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace LaMielApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211106064553_pago")]
+    partial class pago
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -160,33 +162,6 @@ namespace LaMielApp.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("t_pago");
-                });
-
-            modelBuilder.Entity("LaMielApp.Models.Pedido", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<string>("Status")
-                        .HasColumnType("text");
-
-                    b.Property<decimal>("Total")
-                        .HasColumnType("numeric");
-
-                    b.Property<string>("UserID")
-                        .HasColumnType("text");
-
-                    b.Property<int?>("pagoId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("pagoId");
-
-                    b.ToTable("t_order");
                 });
 
             modelBuilder.Entity("LaMielApp.Models.Product", b =>
@@ -389,15 +364,6 @@ namespace LaMielApp.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("LaMielApp.Models.Pedido", b =>
-                {
-                    b.HasOne("LaMielApp.Models.Pago", "pago")
-                        .WithMany()
-                        .HasForeignKey("pagoId");
-
-                    b.Navigation("pago");
                 });
 
             modelBuilder.Entity("LaMielApp.Models.Proforma", b =>

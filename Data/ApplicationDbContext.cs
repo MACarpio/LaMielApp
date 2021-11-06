@@ -17,6 +17,9 @@ namespace LaMielApp.Data
         public DbSet<LaMielApp.Models.Contactanos> DataContactanos { get; set; }
 
         public DbSet<LaMielApp.Models.Product> DataProduct {get; set;}
+        public DbSet<LaMielApp.Models.Pago> DataPago {get; set;}
+        public DbSet<LaMielApp.Models.Pedido> DataPedido {get; set;}
+
 
         public DbSet<LaMielApp.Models.Proforma> DataProforma {get; set;}
     }

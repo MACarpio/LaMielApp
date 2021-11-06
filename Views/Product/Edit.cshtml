@@ -17,6 +17,8 @@
   <div class="edit-detalles">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="Imagen" />
+            <input type="hidden" asp-for="ImagenName" />
             <div class="form-group">
                 <label asp-for="Descripcion" class="control-label text-center">Descripción</label>
                 <textarea asp-for="Descripcion" class="form-control" cols="40" rows="4"></textarea>
@@ -31,7 +33,7 @@
                 <label asp-for="Imagen" class="control-label" >Imagen</label>
             </div>
             <div class="form-group">
-                <input type="file" id="real-file" hidden="hidden" asp-for="Imagen"name="upload" accept="application/jpg" required/>
+                <input type="file" id="real-file" hidden="hidden" asp-for="Imagen" name="upload" accept="application/jpg" />
                 <button type="button" id="custom-button">Cargar Imagen</button>
                 <span id="custom-text">No selecciono ningun archivo.</span>
             </div>
