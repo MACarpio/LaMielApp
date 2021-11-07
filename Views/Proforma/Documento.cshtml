@@ -1,0 +1,167 @@
+@model dynamic;
+@using System.Collections.Generic;
+@{
+    Layout = null;
+    var pago = new Pago();
+    IEnumerable<LaMielApp.Models.Proforma> listProformas = new List<Proforma>();
+    listProformas = @Model.proformas;
+    Decimal montoTotal = @Model.montoTotal;
+    ViewData["Title1"] = "Productos Adquiridos";
+    pago = @Model.pago;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Facturación</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body>
+    <div class="pb-3">
+        <div class="d-grid" style="">
+            <div class="img-boleta text-center">
+                <img src="/img/Logo.png" alt="" height="150">
+            </div>
+            <div class="info-empresa text-center">
+                <h5 class="info-fac">Av. Estados Unidos 10</h5>
+                <h5 class="info-fac">José Luis Bustamante y Rivero-Arequipa-Arequipa-Perú</h5>
+                <h5 class="info-fac">989 431 963</h5>
+                <h5 class="info-fac">https://app-lamiel.herokuapp.com/</h5>
+            </div>
+            <div class="info-pago">
+                <table class="table">
+                    <tr>
+                        <td>
+                            <h5 class="info-pa">Usuario </h5>
+                        </td>
+                        <td>
+                            <h5 class="info-pa"> :  @pago.UserID</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5 class="info-pa">Cliente </h5>
+                        </td>
+                        <td>
+                            <h5 class="info-pa"> :  @pago.Nombres @pago.Apellidos</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5 class="info-pa">Dirección </h5>
+                        </td>
+                        <td>
+                            <h5 class="info-pa"> :  @pago.Direccion</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5 class="info-pa">Fecha de emision </h5>
+                        </td>
+                        <td>
+                            <h5 class="info-pa"> :  @pago.PaymentDate</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5 class="info-pa">Moneda </h5>
+                        </td>
+                        <td>
+                            <h5 class="info-pa"> :  Soles</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5 class="info-pa">Tipo tarjeta </h5>
+                        </td>
+                        <td>
+                            <h5 class="info-pa"> :  @pago.NombreTarjeta</h5>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="seccion-titulo">
+            <h5 class="titulo-prim">@ViewData["Title1"]</h5>
+        </div>
+        <div class="container-carrito">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            <h5 class="titulo-carrito">Imagen</h5>
+                        </th>
+                        <th>
+                            <h5 class="titulo-carrito">Nombre del producto</h5>
+                        </th>
+                        <th>
+                            <h5 class="titulo-carrito">Cantidad</h5>
+                        </th>
+                        <th>
+                            <h5 class="titulo-carrito">Precio/u.</h5>
+                        </th>
+                        <th>
+                            <h5 class="titulo-carrito">Total</h5>
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Proforma item in Model.proformas)
+                    {
+                        <tr>
+                            <td style="text-align: center;">
+                                <img class="img-proforma"
+                                src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=item.Producto.Id })"
+                                alt="@item.Producto.ImagenName" />
+                            </td>
+                            <td>
+                                <h5 class="info-carrito">
+                                    @Html.DisplayFor(modelItem => item.Producto.Name)
+                                </h5>
+                            </td>
+                            <td>
+                                <h5 class="info-carrito">
+                                    @Html.DisplayFor(modelItem => item.Quantity)
+                                </h5>
+                            </td>
+                            <td>
+                                <h5 class="info-carrito">
+                                    @Html.DisplayFor(modelItem => item.Price)
+                                </h5>
+                            </td>
+                            <td>
+                                <h5 class="info-carrito">
+                                    @(item.Quantity*item.Price)
+                                </h5>
+                            </td>
+                        </tr>
+                    }
+                    <tr>
+                        <td>
+                            <h5 class="titulo-carrito">
+                                Total
+                            </h5>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <h5 class="info-carrito">
+                                S/. @montoTotal
+                            </h5>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"></script>
+</body>
+
+</html>

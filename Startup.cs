@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 using LaMielApp.Models;
+using Rotativa.AspNetCore;
 
 namespace LaMielApp
 {
@@ -35,12 +36,10 @@ namespace LaMielApp
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(
                     Configuration.GetConnectionString("PostgressConnection")));
-
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-
             services.AddControllersWithViews();
         }
 
@@ -73,6 +72,7 @@ namespace LaMielApp
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+            RotativaConfiguration.Setup(env.WebRootPath, "../Rotativa");
         }
     }
 }

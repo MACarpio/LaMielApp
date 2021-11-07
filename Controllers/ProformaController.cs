@@ -9,6 +9,7 @@ using LaMielApp.Data;
 using LaMielApp.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Dynamic;
+using Rotativa.AspNetCore;
 
 namespace AngelaStoreApp.Controllers
 {
@@ -110,6 +111,23 @@ public class ProformaController: Controller
             return _context.DataProforma.Any(e => e.Id == id);
         }
 
-
+        public async Task<IActionResult> Documento(int id)
+        {
+           // return View(await _context.Documento.ToListAsync());
+            var userID = _userManager.GetUserName(User);
+            var items = from o in _context.DataProforma select o;
+            items = items.
+                Include(p => p.Producto).
+                Where(s => s.UserID.Equals(userID));
+            var elements = await items.ToListAsync();
+            var total = elements.Sum(c => c.Quantity * c.Price );
+            var pago = await _context.DataPago.FindAsync(id);
+            
+            dynamic model = new ExpandoObject();
+            model.montoTotal = total;
+            model.proformas = elements;
+            model.pago = pago;
+           return new ViewAsPdf("Documento", model);
+        }
     }
 }

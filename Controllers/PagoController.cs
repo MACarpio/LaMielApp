@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace LaMielApp.Controllers
 {
     public class PagoController: Controller
@@ -34,7 +35,6 @@ namespace LaMielApp.Controllers
         {
             pago.PaymentDate = DateTime.Now;
             _context.Add(pago);
-
             var itemsProforma = from o in _context.DataProforma select o;
             itemsProforma = itemsProforma.
                 Include(p => p.Producto).
@@ -68,8 +68,13 @@ namespace LaMielApp.Controllers
 
             _context.SaveChanges();
             ViewData["Message"] = "El pago se ha registrado";
-            return View("Create");
+            return RedirectToAction(nameof(Confirmacion),pago);
         }
 
+        public IActionResult Confirmacion(int id)
+        {
+            var pago = _context.DataPago.Find(id);
+            return View(pago);
+        }
     }
 }

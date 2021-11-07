@@ -6,61 +6,58 @@
 <div class="seccion-titulo">
   <h5 class="titulo-prim">@ViewData["Title"]</h5>
 </div>
-<div class="container">
-  <div class="crud-producto">
-    <form asp-controller="Pago" asp-action="Pagar">
-      <div class="form-group">
-        <input type="hidden" asp-for="UserID" />
-        <div class="">
-          <label asp-for="NombreTarjeta" class="control-label">Tipo de tarjeta</label>
-        </div>
-        <div class="">
-          <select asp-for="NombreTarjeta" class="form-control">
-            <option value="Visa">Visa</option>
-            <option value="BCP">Banco Crédito del Perú</option>
-            <option value="BBVA">BBVA</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="">
-          <label asp-for="NumeroTarjeta" class="control-label">Numero de tarjeta</label>
-        </div>
-        <div class="">
-          <input asp-for="NumeroTarjeta" class="form-control" placeholder="#### #### #### ####" minlength="12" maxlength="12" required/>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="">
-          <label asp-for="DueDateYYMM" class="control-label">Fecha de caducidad</label>
-        </div>
-        <div class="">
-          <input asp-for="DueDateYYMM" class="form-control" type="text" placeholder="##/##" maxlength="5" required/>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="">
-          <label asp-for="Cvv" class="control-label">CVV</label>
-        </div>
-        <div class="">
-          <input asp-for="Cvv" class="form-control" data-inputmask="'mask': '999'" placeholder="###" maxlength="3" required/>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="">
-          <label asp-for="MontoTotal" class="control-label">Monto a pagar</label>
-        </div>
-        <div class="">
-          <input asp-for="MontoTotal" class="form-control" data-thousands="," data-decimal="." disabled />
-        </div>
-      </div>
-      <div class="form-group">
-
-        <div class="">
-          <button type="submit" class="btn btn-prim">Pagar</button>
-        </div>
-
-    </form>
-    <h1>@ViewData["Message"]</h1>
+<div class="seccion-titulo">
+  <h5 class="titulo-seccion">@ViewData["Message"]</h5>
+</div>
+<form asp-controller="Pago" asp-action="Pagar">
+  <div class="crud-pago">
+    <div class="seccion-titulo fr1-3">
+      <h5 class="titulo-seccion">Informacion de facturación</h5>
+    </div>
+    <div class="form-group">
+      <label asp-for="Nombres" class="control-label">Nombres</label>
+      <input asp-for="Nombres" class="form-control" placeholder="Ingrese nombre" required />
+    </div>
+    <div class="form-group">
+      <label asp-for="Apellidos" class="control-label">Apellido</label>
+      <input asp-for="Apellidos" class="form-control" placeholder="Ingrese apellido" required />
+    </div>
+    <div class="form-group fr1-3">
+      <label asp-for="Direccion" class="control-label">Dirección</label>
+      <input asp-for="Direccion" class="form-control" placeholder="Ingrese dirección" required />
+    </div>
+    <div class="seccion-titulo fr1-3">
+      <h5 class="titulo-seccion">Metodo de pago</h5>
+    </div>
+    <div class="form-group fr1-3">
+      <input type="hidden" asp-for="UserID" />
+      <label asp-for="NombreTarjeta" class="control-label">Tipo de tarjeta</label>
+      <select asp-for="NombreTarjeta" class="custom-select">
+        <option value="Visa">Visa</option>
+        <option value="BCP">Banco Crédito del Perú</option>
+        <option value="BBVA">BBVA</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label asp-for="DueDateYYMM" class="control-label">Fecha de caducidad</label>
+      <input asp-for="DueDateYYMM" class="form-control" type="text" placeholder="##/##" maxlength="5" required />
+    </div>
+    <div class="form-group">
+      <label asp-for="Cvv" class="control-label">CVV</label>
+      <input asp-for="Cvv" class="form-control" data-inputmask="'mask': '999'" placeholder="###" maxlength="3"
+        required />
+    </div>
+    <div class="form-group fr1-3">
+      <label asp-for="NumeroTarjeta" class="control-label">Numero de tarjeta</label>
+      <input asp-for="NumeroTarjeta" class="form-control" placeholder="#### #### #### ####" minlength="12"
+        maxlength="12" required />
+    </div>
+    <div class="form-group fr1-3">
+      <label asp-for="MontoTotal" class="control-label">Monto a pagar</label>
+      <input asp-for="MontoTotal" class="form-control" data-thousands="," data-decimal="." disabled />
+    </div>
+    <div class="form-group fr1-3 text-center">
+      <button type="submit" class="btn btn-prim">Pagar</button>
+    </div>
   </div>
-</div
+</form>

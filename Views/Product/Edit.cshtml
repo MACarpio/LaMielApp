@@ -5,16 +5,17 @@
 }
 
 <form asp-action="Edit" enctype="multipart/form-data">
-<div class="container-detalles">
-  <div class="seccion-titulo titulo-detalles" >
-      <div class="form-group">
-      <input asp-for="Name" class="form-control text-center" s/>
-      </div>
-  </div>
-  <div class="img-detalles">
-    <img class="img-producto" src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=Model.Id })" alt="@Html.DisplayFor(model => model.ImagenName)"  />
-  </div>
-  <div class="edit-detalles">
+    <div class="container-detalles">
+        <div class="seccion-titulo titulo-detalles">
+            <div class="form-group">
+                <input asp-for="Name" class="form-control text-center" s />
+            </div>
+        </div>
+        <div class="img-detalles">
+            <img class="img-producto" src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=Model.Id })"
+                alt="@Html.DisplayFor(model => model.ImagenName)" />
+        </div>
+        <div class="edit-detalles">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <input type="hidden" asp-for="Imagen" />
@@ -30,10 +31,11 @@
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
             <div class="form-group" style="margin-bottom: -2px;">
-                <label asp-for="Imagen" class="control-label" >Imagen</label>
+                <label asp-for="Imagen" class="control-label">Imagen</label>
             </div>
             <div class="form-group">
-                <input type="file" id="real-file" hidden="hidden" asp-for="Imagen" name="upload" accept="application/jpg" />
+                <input type="file" id="real-file" hidden="hidden" asp-for="Imagen" name="upload"
+                    accept="application/jpg" />
                 <button type="button" id="custom-button">Cargar Imagen</button>
                 <span id="custom-text">No selecciono ningun archivo.</span>
             </div>
@@ -43,11 +45,11 @@
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="editar-btn">
-            <input type="submit" value="Actualizar" class="btn btn-prim btn-completo" />
+                <input type="submit" value="Actualizar" class="btn btn-prim btn-completo" />
             </div>
-  </div>
-</div>
+        </div>
+    </div>
 </form>
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
