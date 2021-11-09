@@ -20,31 +20,18 @@ realFileBtn.addEventListener("change", function () {
   }
 });
 
-const $btnExportar = document.querySelector("#btnExportar"),
-  $tabla = document.querySelector("#tabla1");
+const datefield = document.getElementById("datefield");
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth(); //January is 0!
+var yyyy = today.getFullYear();
 
-$btnExportar.addEventListener("click", function () {
-  let tableExport = new TableExport($tabla, {
-    exportButtons: false, // No queremos botones
-    filename: "Mi tabla de Excel", //Nombre del archivo de Excel
-    sheetname: "Mi tabla de Excel", //Título de la hoja
-  });
-  let datos = tableExport.getExportData();
-  let preferenciasDocumento = datos.tabla.xlsx;
-  tableExport.export2file(
-    preferenciasDocumento.data,
-    preferenciasDocumento.mimeType,
-    preferenciasDocumento.filename,
-    preferenciasDocumento.fileExtension,
-    preferenciasDocumento.merges,
-    preferenciasDocumento.RTL,
-    preferenciasDocumento.sheetname
-  );
-});
+if (dd < 10) {
+  dd = "0" + dd;
+}
 
-$(document).ready(function () {
-  $("#example").DataTable({
-    dom: "Bfrtip",
-    buttons: ["copy", "csv", "excel", "pdf", "print"],
-  });
-});
+if (mm < 10) {
+  mm = "0" + mm;
+}
+today = yyyy + "-" + mm + "-" + dd;
+datefield.setAttribute("min", today);

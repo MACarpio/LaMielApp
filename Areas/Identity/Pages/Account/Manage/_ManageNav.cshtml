@@ -9,8 +9,8 @@
             asp-page="./Index">Perfil</a></li>
     <li class="nav-item"><a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password"
             asp-page="./ChangePassword">Contraseña</a></li>
-    <li class="nav-item"><a class="nav-link @ManageNavPages.PedidosNavClass(ViewContext)" id="change-password"
-            asp-page="./Pedido">Pedidos</a></li>
+    <li class="nav-item"><a class="nav-link" id="change-password" asp-controller="Pedido"
+            asp-action="PedidoUsu">Pedidos</a></li>
     @if (hasExternalLogins)
     {
         <li id="external-logins" class="nav-item"><a id="external-login"

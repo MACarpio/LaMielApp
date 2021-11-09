@@ -7,7 +7,8 @@
   <h5 class="titulo-seccion">@ViewData["Message"]</h5>
 </div>
 <div class="seccion-titulo text-center">
-  <h5 class="titulo-prim">Generar boleta</h5>
-  <h5 class="precio-producto">@Html.DisplayFor(model => model.Nombres)</h5>
-  <a class="btn-prim" asp-controller="Proforma" asp-action="Documento" asp-route-id="@Model.Id"> Boleta </a>
+  <h5 class="titulo-prim">Muchas Gracias @Html.DisplayFor(model => model.Nombres)</h5>
+  <h5 class="titulo-seccion">Gracias Por tu preferencia</h5>
+  <h5 class="titulo-seccion">Esperamos Vuelvas a comprar con nosotros</h5>
+  <a class="btn-prim" asp-controller="Proforma" asp-action="Documento" asp-route-id="@Model.Id"> Generar Boleta </a>
 </div>

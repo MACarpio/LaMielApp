@@ -2,15 +2,16 @@
 
 
 @{
-    ViewData["Title"] = "Details";
+  ViewData["Title"] = "Details";
 }
 
 <div class="container-detalles">
-  <div class="seccion-titulo titulo-detalles" >
+  <div class="seccion-titulo titulo-detalles">
     <h5 class="titulo-prim">@Html.DisplayFor(model => model.Name)</h5>
   </div>
   <div class="img-detalles">
-    <img class="img-producto" src="@Url.ActionLink("MostrarImagen","Product",new { id=Model.Id })" alt="@Html.DisplayFor(model => model.ImagenName)"  />
+    <img class="img-producto" src="@Url.ActionLink("MostrarImagen","Product",new { id=Model.Id })"
+      alt="@Html.DisplayFor(model => model.ImagenName)" />
   </div>
   <div class="info-detalles">
     <p class="nom-producto">Descripción</p>
@@ -25,10 +26,9 @@
     <h5 class="precio-producto">@Html.DisplayFor(model => model.Status)</h5>
   </div>
   <div class="detalles-btn">
-      <a class="btn btn-prim" asp-action="Index">Regresar al catalogo</a>
+    <a class="btn btn-prim" asp-action="Index">Regresar al catalogo</a>
     <a class="btn btn-editar" asp-action="Edit" asp-route-id="@Model.Id">Editar</a>
     <a class="btn btn-eliminar" asp-action="Delete" asp-route-id="@Model.Id">Eliminar</a>
 
   </div>
 </div>
-

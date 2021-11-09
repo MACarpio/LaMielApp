@@ -147,6 +147,7 @@ namespace LaMielApp.Controllers
                             product.ImagenName = Path.GetFileName(up.FileName);
                         }
                     }
+                    ModelState.AddModelError("precio", "Solo valores numericos");
                     _context.Update(product);
                     await _context.SaveChangesAsync();
                 }
@@ -192,7 +193,7 @@ namespace LaMielApp.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var product = await _context.DataProduct.FindAsync(id);
-            _context.DataProduct.Remove(product);
+            product.Status = "ELIMINADO";
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

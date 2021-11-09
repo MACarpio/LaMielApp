@@ -19,7 +19,6 @@ namespace LaMielApp.Areas.Identity.Pages.Account.Manage
 
         public static string IndexNavClass(ViewContext viewContext) => PageNavClass(viewContext, Index);
         public static string ChangePasswordNavClass(ViewContext viewContext) => PageNavClass(viewContext, ChangePassword);
-        public static string PedidosNavClass(ViewContext viewContext) => PageNavClass(viewContext, Pedido);
         public static string ExternalLoginsNavClass(ViewContext viewContext) => PageNavClass(viewContext, ExternalLogins);
         private static string PageNavClass(ViewContext viewContext, string page)
         {

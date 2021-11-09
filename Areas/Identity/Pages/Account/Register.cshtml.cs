@@ -59,18 +59,18 @@ namespace LaMielApp.Areas.Identity.Pages.Account
             public DateTime FechaNac { get; set; }
 
             [Required]
-            [EmailAddress]
+            [EmailAddress(ErrorMessage = "El Correo no es una dirección de correo válida.")]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
             [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = "La {0} debe tener al menos {2} y un máximo de {1} caracteres.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Contraseña")]
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
+            [Display(Name = "Confirmar contraseña")]
             [Compare("Password", ErrorMessage = "Las contraseñas no coinciden.")]
             public string ConfirmPassword { get; set; }
         }
@@ -87,7 +87,7 @@ namespace LaMielApp.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, Nombres=Input.Nombres, Apellidos=Input.Apellidos,FechaNac=Input.FechaNac };
+                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, Nombres = Input.Nombres, Apellidos = Input.Apellidos, FechaNac = Input.FechaNac };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

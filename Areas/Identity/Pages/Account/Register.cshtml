@@ -7,48 +7,46 @@
 
 <br>
 <div class="container-form">
-        <div class="seccion-titulo" >
-            <h5 class="titulo-prim">Crear cuenta nueva.</h5>
+    <div class="seccion-titulo">
+        <h5 class="titulo-prim">Crear cuenta nueva.</h5>
+    </div>
+    <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+        <hr />
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Input.Nombres" class="control-label">Nombres</label>
+            <input asp-for="Input.Nombres" class="form-control" placeholder="Ingresa tu correo" type="text" required />
+            <span asp-validation-for="Input.Nombres" class="text-danger"></span>
         </div>
-        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <hr />
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Input.Nombres" class="control-label">Nombres</label>
-                <input asp-for="Input.Nombres" class="form-control" placeholder="Ingresa tu correo" type="text" required/>
-                <span asp-validation-for="Input.Nombres" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.Apellidos" class="control-label">Apellidos</label>
-                <input asp-for="Input.Apellidos" class="form-control" placeholder="Ingresa tu correo" type="text" required/>
-                <span asp-validation-for="Input.Apellidos" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.FechaNac" class="control-label">Fecha de Nacimiento</label>
-                <input asp-for="Input.FechaNac" class="form-control" type="date" max="2011-01-01" required/>
-                <span asp-validation-for="Input.FechaNac" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.Email" class="control-label">Correo</label>
-                <input asp-for="Input.Email" class="form-control" placeholder="Ingresa tu correo" type="text" required/>
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.Password" class="control-label">Contraseña</label>
-                <input asp-for="Input.Password" class="form-control" placeholder="Ingresa una contraseña" type="password" required/>
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.ConfirmPassword" class="control-label">Confirmar contraseña</label>
-                <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirma contraseña" type="password" required/>
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-            </div>
-            <button type="submit" class="btn-prim form-control">Registrar</button>
-        </form>
-    
+        <div class="form-group">
+            <label asp-for="Input.Apellidos" class="control-label">Apellidos</label>
+            <input asp-for="Input.Apellidos" class="form-control" placeholder="Ingresa tu correo" type="text"
+                required />
+            <span asp-validation-for="Input.Apellidos" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Input.Email" class="control-label">Correo</label>
+            <input asp-for="Input.Email" class="form-control" placeholder="Ingresa tu correo" type="text" required />
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Input.Password" class="control-label">Contraseña</label>
+            <input asp-for="Input.Password" class="form-control" placeholder="Ingresa una contraseña" type="password"
+                required />
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Input.ConfirmPassword" class="control-label">Confirmar contraseña</label>
+            <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirma contraseña"
+                type="password" required />
+            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn-prim form-control">Registrar</button>
+    </form>
+
 </div>
 
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+<partial name="_ValidationScriptsPartial" />
 }

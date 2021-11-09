@@ -39,6 +39,7 @@ namespace LaMielApp.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index(String EmpsearchId, String EmpsearchUsu, String EmpsearchEst)
         {
             ViewData["Getemployeedetails"] = EmpsearchId;
@@ -150,6 +151,65 @@ namespace LaMielApp.Controllers
                 }
             }
             return new ViewAsPdf("Reporte", await empquery.Include(p => p.pago).AsNoTracking().ToListAsync());
+        }
+        public async Task<IActionResult> PedidoUsu()
+        {
+            var userID = _userManager.GetUserName(User);
+            var pedidos = _context.DataPedido.Where(pe => pe.UserID.Equals(userID));
+            return View(await pedidos.Include(p => p.pago).ToListAsync());
+        }
+        public async Task<IActionResult> ReporteUsu()
+        {
+            var userID = _userManager.GetUserName(User);
+            var pedidos = _context.DataPedido.Where(pe => pe.UserID.Equals(userID));
+            return new ViewAsPdf("ReporteUsu", await pedidos.Include(p => p.pago).ToListAsync());
+        }
+        public async Task<IActionResult> EditUsu(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var pedido = await _context.DataPedido.Include(p => p.pago)
+            .FirstOrDefaultAsync(i => i.ID == id);
+            if (pedido == null)
+            {
+                return NotFound();
+            }
+            return View(pedido);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditUsu(int id, Pedido pedido)
+        {
+            if (id != pedido.ID)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(pedido);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!PedidoExists(pedido.ID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(PedidoUsu));
+            }
+            return View(pedido);
         }
     }
 }

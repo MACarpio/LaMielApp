@@ -1,0 +1,75 @@
+@model LaMielApp.Models.Pedido
+
+@{
+    ViewData["Title"] = "Editar Pedido";
+}
+<div class="seccion-titulo">
+    <h5 class="titulo-prim">@ViewData["Title"]</h5>
+</div>
+<div class="crud-producto">
+    <form asp-action="EditUsu">
+        <div class="edit-detalles">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ID" class="control-label text-center">Codigo de pedido</label>
+                <input asp-for="ID" class="form-control" disabled />
+                <span asp-validation-for="ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserID" class="control-label text-center">Usuario</label>
+                <input asp-for="UserID" class="form-control" disabled />
+                <span asp-validation-for="UserID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Total" class="control-label text-center">Total</label>
+                <input asp-for="Total" class="form-control" disabled />
+                <span asp-validation-for="Total" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pago.Nombres" class="control-label text-center">Nombres</label>
+                <input asp-for="pago.Nombres" class="form-control" />
+                <span asp-validation-for="pago.Nombres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pago.Apellidos" class="control-label text-center">Apellidos</label>
+                <input asp-for="pago.Apellidos" class="form-control" />
+                <span asp-validation-for="pago.Apellidos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pago.Direccion" class="control-label text-center">Dirección</label>
+                <input asp-for="pago.Direccion" class="form-control" />
+                <span asp-validation-for="pago.Direccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pago.FechaEntrega" class="control-label text-center">Fecha de Entrega</label>
+                <input asp-for="pago.FechaEntrega" class="form-control" type="datetime-local" />
+                <span asp-validation-for="pago.FechaEntrega" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label text-center">Estado</label>
+                <input asp-for="Status" class="form-control" disabled />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="ID" />
+            <input type="hidden" asp-for="UserID" />
+            <input type="hidden" asp-for="Total" />
+            <input type="hidden" asp-for="pago.Id" />
+            <input type="hidden" asp-for="Status" />
+            <input type="hidden" asp-for="pago.PaymentDate" />
+            <input type="hidden" asp-for="pago.NombreTarjeta" />
+            <input type="hidden" asp-for="pago.NumeroTarjeta" />
+            <input type="hidden" asp-for="pago.FechaEntrega" />
+            <input type="hidden" asp-for="pago.DueDateYYMM" />
+            <input type="hidden" asp-for="pago.Cvv" />
+            <input type="hidden" asp-for="pago.MontoTotal" />
+            <input type="hidden" asp-for="pago.UserID" />
+
+            <div class="editar-btn">
+                <input type="submit" value="Actualizar" class="btn btn-prim btn-completo" />
+            </div>
+        </div>
+    </form>
+</div>
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
