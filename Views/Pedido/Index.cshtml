@@ -1,0 +1,119 @@
+﻿@model IEnumerable<LaMielApp.Models.Pedido>
+@{
+  ViewData["Title"] = "Pedidos de pedidos";
+}
+
+<div class="seccion-titulo">
+  <h5 class="titulo-prim">@ViewData["Title"]</h5>
+</div>
+<div>
+  <form class="container-buscar">
+    <input class="form-control buscar-producto bs-id" type="search" placeholder="Buscar por Id" aria-label="Search"
+      value="@ViewData["Getemployeedetails"]" name="EmpsearchId">
+    <input class="form-control buscar-producto bs-usuario" type="search" placeholder="Buscar por Usuario"
+      aria-label="Search" value="@ViewData["Getemployeedetails1"]" name="EmpsearchUsu">
+    <select class="form-control buscar-producto bs-estado" aria-label="Search" value="@ViewData["Getemployeedetails2"]"
+      name="EmpsearchEst">
+      <option value="TODOS">Todos</option>
+      <option value="PENDIENTE">Pendiente</option>
+      <option value="ENTREGADO">Entregado</option>
+      <option value="CANCELADO">Cancelado</option>
+    </select>
+
+    <button class="btn btn-prim" type="submit">Buscar</button>
+  </form>
+</div>
+<div class="seccion-titulo">
+  <h5 class="titulo-seccion">@ViewData["Message"]</h5>
+</div>
+<div class="container-carrito">
+  <table class="table table-border table-hover" id="tabla">
+    <thead>
+      <tr>
+        <th>
+          <h5 class="titulo-carrito">ID</h5>
+        </th>
+        <th>
+          <h5 class="titulo-carrito">Usuario</h5>
+        </th>
+        <th>
+          <h5 class="titulo-carrito">Cliente</h5>
+        </th>
+        <th>
+          <h5 class="titulo-carrito">Dirección</h5>
+        </th>
+        <th>
+          <h5 class="titulo-carrito">Entrega</h5>
+        </th>
+        <th>
+          <h5 class="titulo-carrito">Total</h5>
+        </th>
+        <th>
+          <h5 class="titulo-carrito">Estado</h5>
+        </th>
+        <th>
+          <h5 class="titulo-carrito">Boleta</h5>
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (Pedido item in Model)
+      {
+        <tr>
+          <td>
+            <h5 class="info-pedido">
+              @Html.DisplayFor(modelItem => item.ID)
+            </h5>
+          </td>
+          <td>
+            <h5 class="info-pedido">
+              @Html.DisplayFor(modelItem => item.UserID)
+            </h5>
+          </td>
+          <td>
+            <h5 class="info-pedido">
+              @Html.DisplayFor(modelItem => item.pago.Nombres) @Html.DisplayFor(modelItem => item.pago.Apellidos)
+            </h5>
+          </td>
+          <td>
+            <h5 class="info-pedido">
+              @Html.DisplayFor(modelItem => item.pago.Direccion)
+            </h5>
+          </td>
+          <td>
+            <h5 class="info-pedido">
+              @Html.DisplayFor(modelItem => item.pago.FechaEntrega)
+            </h5>
+          </td>
+          <td>
+            <h5 class="info-pedido">
+              @Html.DisplayFor(modelItem => item.Total)
+            </h5>
+          </td>
+          <td>
+            <h5 class="info-pedido">
+              @Html.DisplayFor(modelItem => item.Status)
+            </h5>
+          </td>
+          <td>
+            <h5 class="info-pedido">
+              <a asp-controller="Proforma" asp-action="Documento" asp-route-id="@item.pago.Id"> Ver Boleta </a>
+            </h5>
+          </td>
+          <td class="info-pedido">
+            <a class="btn-editar" asp-action="Edit" asp-route-id="@item.ID">Editar</a>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+<div class="col-md-4 offset-md-4 text-center">
+  <form asp-action="Reporte" class="container-buscar" target="_blank">
+    <input type="hidden" value="@ViewData["Getemployeedetails"]" name="EmpsearchId" />
+    <input type="hidden" value="@ViewData["Getemployeedetails1"]" name="EmpsearchUsu" />
+    <input type="hidden" value="@ViewData["Getemployeedetails2"]" name="EmpsearchEst" />
+    <button class="btn btn-eliminar" type="submit"><i class="fas fa-file-pdf"></i> Exportar datos a Pdf</button>
+  </form>
+</div>

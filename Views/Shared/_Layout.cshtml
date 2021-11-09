@@ -1,40 +1,51 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-    <head style="background-color: #297D90;">
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>La Miel</title>
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-        <script src="https://kit.fontawesome.com/6817716545.js" crossorigin="anonymous"></script>
 
-    </head>
-    <body>
-        <header> 
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-2 d-flex justify-content-between">
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Logo.png" class="logo"></a>
-                    <partial name="_MenuPartial" />
-                    <partial name="_LoginPartial" />
-            </nav>
-        </header>
-        <div class="social">
+<head style="background-color: #297D90;">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La Miel</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="https://kit.fontawesome.com/6817716545.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <header>
+        <nav
+            class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-2 d-flex justify-content-between">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Logo.png"
+                    class="logo"></a>
+            <partial name="_MenuPartial" />
+            <partial name="_LoginPartial" />
+        </nav>
+    </header>
+    <div class="social">
         <ul>
-      
-      <li> <a href="https://m.me/Lamielpasteleria" target="_blank"  class="fab fa-facebook-messenger icons-sticky"></a></li>
-      <li> <a href="https://api.whatsapp.com/send?phone=51989431963&text=%C2%A1Hola!%20Quisiera%20realizar%20una%20cotización...%20" target="_blank" class="fab fa-whatsapp icons-sticky"></a></li>
-    </ul>
-        </div>
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-        <footer class="border-top footer text-muted">   
+            <li>
+                <div class="serv-cotizacion">
+                    <h5 class="cotizacion">Para cualquier cotización comunicarse por estos medios</h5>
+                </div>
+            </li>
+            <li> <a href="https://m.me/Lamielpasteleria" target="_blank"
+                    class="fab fa-facebook-messenger icons-sticky"></a></li>
+            <li> <a href="https://api.whatsapp.com/send?phone=51989431963&text=%C2%A1Hola!%20Quisiera%20realizar%20una%20cotización...%20"
+                    target="_blank" class="fab fa-whatsapp icons-sticky"></a></li>
+        </ul>
+    </div>
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+    <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2021 - La Miel - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
-        </footer>
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="~/js/site.js"></script>
-        @RenderSection("Scripts", required: false)
-    </body>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+
 </html>

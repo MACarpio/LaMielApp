@@ -8,7 +8,7 @@
     <div class="container-detalles">
         <div class="seccion-titulo titulo-detalles">
             <div class="form-group">
-                <input asp-for="Name" class="form-control text-center" s />
+                <input asp-for="Name" class="form-control text-center" />
             </div>
         </div>
         <div class="img-detalles">
@@ -40,9 +40,11 @@
                 <span id="custom-text">No selecciono ningun archivo.</span>
             </div>
             <div class="form-group">
-                <label asp-for="Status" class="control-label text-center">Estado</label>
-                <input asp-for="Status" class="form-control" />
-                <span asp-validation-for="Status" class="text-danger"></span>
+                <label asp-for="Status" class="control-label">Estado</label>
+                <select asp-for="Status" class="custom-select form-control">
+                    <option value="Activo">Activo</option>
+                    <option value="Inactivo">Inactivo</option>
+                </select>
             </div>
             <div class="editar-btn">
                 <input type="submit" value="Actualizar" class="btn btn-prim btn-completo" />

@@ -9,6 +9,8 @@ using LaMielApp.Data;
 using LaMielApp.Models;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Logging;
 
 namespace LaMielApp.Controllers
 {
@@ -20,13 +22,13 @@ namespace LaMielApp.Controllers
         {
             _context = context;
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Product
         public async Task<IActionResult> Index()
         {
             return View(await _context.DataProduct.ToListAsync());
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Product/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -58,6 +60,7 @@ namespace LaMielApp.Controllers
 
         }
         // GET: Product/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -68,6 +71,7 @@ namespace LaMielApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(Product product, List<IFormFile> upload)
         {
             if (ModelState.IsValid)
@@ -92,6 +96,7 @@ namespace LaMielApp.Controllers
         }
 
         // GET: Product/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -112,6 +117,7 @@ namespace LaMielApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id, Product product, List<IFormFile> upload)
         {
             if (id != product.Id)
@@ -161,6 +167,7 @@ namespace LaMielApp.Controllers
         }
 
         // GET: Product/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -181,6 +188,7 @@ namespace LaMielApp.Controllers
         // POST: Product/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var product = await _context.DataProduct.FindAsync(id);

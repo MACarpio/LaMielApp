@@ -26,6 +26,10 @@
       <label asp-for="Direccion" class="control-label">Dirección</label>
       <input asp-for="Direccion" class="form-control" placeholder="Ingrese dirección" required />
     </div>
+    <div class="form-group fr1-3">
+      <label asp-for="FechaEntrega" class="control-label">Fecha de Entrega</label>
+      <input asp-for="FechaEntrega" class="form-control" type="date" required />
+    </div>
     <div class="seccion-titulo fr1-3">
       <h5 class="titulo-seccion">Metodo de pago</h5>
     </div>
@@ -55,6 +59,7 @@
     <div class="form-group fr1-3">
       <label asp-for="MontoTotal" class="control-label">Monto a pagar</label>
       <input asp-for="MontoTotal" class="form-control" data-thousands="," data-decimal="." disabled />
+      <input type="hidden" asp-for="MontoTotal" />
     </div>
     <div class="form-group fr1-3 text-center">
       <button type="submit" class="btn btn-prim">Pagar</button>

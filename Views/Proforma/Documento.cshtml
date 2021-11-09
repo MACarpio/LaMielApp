@@ -3,7 +3,7 @@
 @{
     Layout = null;
     var pago = new Pago();
-    IEnumerable<LaMielApp.Models.Proforma> listProformas = new List<Proforma>();
+    IEnumerable<LaMielApp.Models.DetallePedido> listProformas = new List<DetallePedido>();
     listProformas = @Model.proformas;
     Decimal montoTotal = @Model.montoTotal;
     ViewData["Title1"] = "Productos Adquiridos";
@@ -33,6 +33,14 @@
             </div>
             <div class="info-pago">
                 <table class="table">
+                    <tr>
+                        <td>
+                            <h5 class="info-pa">N° de Factura:  </h5>
+                        </td>
+                        <td>
+                            <h5 class="info-pa"> :  @pago.Id</h5>
+                        </td>
+                    </tr>
                     <tr>
                         <td>
                             <h5 class="info-pa">Usuario </h5>
@@ -101,7 +109,7 @@
                             <h5 class="titulo-carrito">Cantidad</h5>
                         </th>
                         <th>
-                            <h5 class="titulo-carrito">Precio/u.</h5>
+                            <h5 class="titulo-carrito">Precio/u.qwe</h5>
                         </th>
                         <th>
                             <h5 class="titulo-carrito">Total</h5>
@@ -110,7 +118,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (Proforma item in Model.proformas)
+                    @foreach (DetallePedido item in Model.proformas)
                     {
                         <tr>
                             <td style="text-align: center;">

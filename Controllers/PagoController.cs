@@ -56,7 +56,6 @@ namespace LaMielApp.Controllers
                 detallePedido.Producto = item.Producto;
                 detallePedido.Quantity = item.Quantity;
                 itemsPedido.Add(detallePedido);
-
         }
         _context.AddRange(itemsPedido);
 
@@ -65,7 +64,12 @@ namespace LaMielApp.Controllers
                 p.Status="PROCESADO";
             }
             _context.UpdateRange(itemsProforma);
-
+            foreach (Proforma p in itemsProforma)
+            {
+                if(p.Status=="PROCESADO"){
+                    _context.Remove(p);
+                }
+            }
             _context.SaveChanges();
             ViewData["Message"] = "El pago se ha registrado";
             return RedirectToAction(nameof(Confirmacion),pago);

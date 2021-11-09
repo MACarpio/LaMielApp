@@ -1,0 +1,100 @@
+@model IEnumerable<LaMielApp.Models.Pedido>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Reporte de pedido</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+@{
+    ViewData["Title"] = "Reporte";
+    Layout = null;
+}
+
+<body>
+    <div class="pb-3">
+        <div class="seccion-titulo">
+            <h5 class="titulo-prim">@ViewData["Title"]</h5>
+        </div>
+        <div class="container-carrito">
+            <table class="table table-border table-hover" id="tabla">
+                <thead>
+                    <tr>
+                        <th>
+                            <h5 class="titulo-carrito">Codigo</h5>
+                        </th>
+                        <th>
+                            <h5 class="titulo-carrito">Usuario</h5>
+                        </th>
+                        <th>
+                            <h5 class="titulo-carrito">Cliente</h5>
+                        </th>
+                        <th>
+                            <h5 class="titulo-carrito">Dirección</h5>
+                        </th>
+                        <th>
+                            <h5 class="titulo-carrito">Entrega</h5>
+                        </th>
+                        <th>
+                            <h5 class="titulo-carrito">Total</h5>
+                        </th>
+                        <th>
+                            <h5 class="titulo-carrito">Estado</h5>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Pedido item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <h5 class="info-pedido">
+                                    @Html.DisplayFor(modelItem => item.ID)
+                                </h5>
+                            </td>
+                            <td>
+                                <h5 class="info-pedido">
+                                    @Html.DisplayFor(modelItem => item.UserID)
+                                </h5>
+                            </td>
+                            <td>
+                                <h5 class="info-pedido">
+                                    @Html.DisplayFor(modelItem => item.pago.Nombres) @Html.DisplayFor(modelItem =>
+                                item.pago.Apellidos)
+                                </h5>
+                            </td>
+                            <td>
+                                <h5 class="info-pedido">
+                                    @Html.DisplayFor(modelItem => item.pago.Direccion)
+                                </h5>
+                            </td>
+                            <td>
+                                <h5 class="info-pedido">
+                                    @Html.DisplayFor(modelItem => item.pago.FechaEntrega)
+                                </h5>
+                            </td>
+                            <td>
+                                <h5 class="info-pedido">
+                                    @Html.DisplayFor(modelItem => item.Total)
+                                </h5>
+                            </td>
+                            <td>
+                                <h5 class="info-pedido">
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </h5>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"></script>
+</body>
+
+</html>

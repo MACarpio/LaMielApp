@@ -17,15 +17,16 @@ namespace LaMielApp.Models
         public String Apellidos { get; set; }
         public String Direccion { get; set; }
         public DateTime PaymentDate { get; set; }
-        public String NombreTarjeta { get; set; }  
-        [NotMapped]  
-        public String NumeroTarjeta { get; set; }        
+        public String NombreTarjeta { get; set; }
+        [NotMapped]
+        public String NumeroTarjeta { get; set; }
         [NotMapped]
         public String DueDateYYMM { get; set; }
         [NotMapped]
         public String Cvv { get; set; }
-        public Decimal MontoTotal{ get; set; }
-        public String UserID{ get; set; }
-  
+        public Decimal MontoTotal { get; set; }
+        public String UserID { get; set; }
+        public DateTime FechaEntrega { get; set; }
+
     }
 }
