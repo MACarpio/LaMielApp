@@ -35,10 +35,10 @@
                 <table class="table">
                     <tr>
                         <td>
-                            <h5 class="info-pa">N° de Factura:  </h5>
+                            <h5 class="info-pa">N° de Factura: </h5>
                         </td>
                         <td>
-                            <h5 class="info-pa"> :  @pago.Id</h5>
+                            <h5 class="info-pa"> : @pago.Id</h5>
                         </td>
                     </tr>
                     <tr>
@@ -46,7 +46,7 @@
                             <h5 class="info-pa">Usuario </h5>
                         </td>
                         <td>
-                            <h5 class="info-pa"> :  @pago.UserID</h5>
+                            <h5 class="info-pa"> : @pago.UserID</h5>
                         </td>
                     </tr>
                     <tr>
@@ -54,7 +54,7 @@
                             <h5 class="info-pa">Cliente </h5>
                         </td>
                         <td>
-                            <h5 class="info-pa"> :  @pago.Nombres @pago.Apellidos</h5>
+                            <h5 class="info-pa"> : @pago.Nombres @pago.Apellidos</h5>
                         </td>
                     </tr>
                     <tr>
@@ -62,7 +62,7 @@
                             <h5 class="info-pa">Dirección </h5>
                         </td>
                         <td>
-                            <h5 class="info-pa"> :  @pago.Direccion</h5>
+                            <h5 class="info-pa"> : @pago.Direccion</h5>
                         </td>
                     </tr>
                     <tr>
@@ -70,7 +70,7 @@
                             <h5 class="info-pa">Fecha de emision </h5>
                         </td>
                         <td>
-                            <h5 class="info-pa"> :  @pago.PaymentDate</h5>
+                            <h5 class="info-pa"> : @pago.PaymentDate</h5>
                         </td>
                     </tr>
                     <tr>
@@ -78,7 +78,7 @@
                             <h5 class="info-pa">Moneda </h5>
                         </td>
                         <td>
-                            <h5 class="info-pa"> :  Soles</h5>
+                            <h5 class="info-pa"> : Soles</h5>
                         </td>
                     </tr>
                     <tr>
@@ -86,7 +86,7 @@
                             <h5 class="info-pa">Tipo tarjeta </h5>
                         </td>
                         <td>
-                            <h5 class="info-pa"> :  @pago.NombreTarjeta</h5>
+                            <h5 class="info-pa"> : @pago.NombreTarjeta</h5>
                         </td>
                     </tr>
                 </table>
@@ -138,12 +138,12 @@
                             </td>
                             <td>
                                 <h5 class="info-carrito">
-                                    @Html.DisplayFor(modelItem => item.Price)
+                                    S/ @Html.DisplayFor(modelItem => item.Price)
                                 </h5>
                             </td>
                             <td>
                                 <h5 class="info-carrito">
-                                    @(item.Quantity*item.Price)
+                                    S/ @(item.Quantity*item.Price)
                                 </h5>
                             </td>
                         </tr>

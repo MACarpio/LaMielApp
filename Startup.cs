@@ -29,10 +29,10 @@ namespace LaMielApp
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {           
-          //  services.AddDbContext<ApplicationDbContext>(options =>
-          //      options.UseSqlite(
-          //          Configuration.GetConnectionString("DefaultConnection")));
+        {
+            //  services.AddDbContext<ApplicationDbContext>(options =>
+            //      options.UseSqlite(
+            //          Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(
                     Configuration.GetConnectionString("PostgressConnection")));
@@ -73,7 +73,7 @@ namespace LaMielApp
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
-            RotativaConfiguration.Setup(env.WebRootPath, "../Rotativa");
+            RotativaConfiguration.Setup(env.WebRootPath, "Rotativa");
         }
     }
 }
