@@ -9,9 +9,9 @@ using LaMielApp.Models;
 using LaMielApp.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace App_AngelaStore.Controllers
+namespace LaMielApp.Controllers
 {
-    
+
     public class ContactanosController : Controller
     {
         private readonly ILogger<ContactanosController> _logger;
@@ -31,7 +31,7 @@ namespace App_AngelaStore.Controllers
         public IActionResult Index()
         {
             var listacontactanos = _context.DataContactanos.ToList();
-            ViewData["message"]="";
+            ViewData["message"] = "";
             return View(listacontactanos);
         }
 
@@ -41,7 +41,7 @@ namespace App_AngelaStore.Controllers
             return View();
         }
 
-    
+
         [HttpPost]
         public IActionResult Create(Contactanos objContactanos)
         {
@@ -49,7 +49,7 @@ namespace App_AngelaStore.Controllers
             _context.SaveChanges();
             return RedirectToAction(nameof(Create));
         }
-         public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -78,6 +78,6 @@ namespace App_AngelaStore.Controllers
         }
 
 
-    
+
     }
 }
